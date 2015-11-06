@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Cleaning Up</title>
+		<script type="text/javascript" src="../d3.v3.js"></script>
+        <link rel="stylesheet" href="css/final.css">
+
+	</head>
+	<body>
+
+		<h1>Weapons Used by Type of Offense</h1>
+
+		<p>Weapons Used in the Commission of Various Criminal Offenses. Source: <a href="http://www.bjs.gov/index.cfm?ty=tp&tid=43">BJS</a>, 2012</p>
+
+		
+<script type="text/javascript">
+    var w = 700;
+    var h = 600;
+    var padding = [20, 10, 30, 180]; //Top, right, bottom, left
+
+    var widthScale = d3.scale.linear()
+        .range([0, w - padding[1] - padding[3]]);
+
+    var heightScale = d3.scale.ordinal()
+        .rangeRoundBands([padding[0], h - padding[2]], 0.1);
+
+    var xAxis = d3.svg.axis()
+        .scale(widthScale)
+        .orient("bottom");
+
+    var yAxis = d3.svg.axis()
+        .scale(heightScale)
+        .orient("left");
+
+    var svg = d3.select("body")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
+    
+    function drawchart(currentdata, alldata) {
+        svg.selectAll("*").remove() 
+        currentdata.sort(function(a, b) {
+         return d3.descending(+a.Homicide, +b.Homicide);
+        });
+
+        widthScale.domain([0, d3.max(currentdata, function(d) {
+            return +d.Homicide;
+        })]);
+
+        heightScale.domain(currentdata.map(function(d) {
+            return d.Type;
+        }));
+
+        var rects = svg.selectAll("rect")
+            .data(currentdata)
+            .enter()
+            .append("rect")
+            .on("click", function(d) {  //filter so that only top level cats show
+                var Parent = d.Type
+                var toplevel = alldata.filter(function(d) {
+                    return d.Parent === Parent
+                }) 
+                if (toplevel.length ===  0) { //make sure empty categories don't show up
+                    return
+                }
+                drawchart(toplevel, alldata)
+            })
+            .on("mouseover", function() {
+                d3.select(this)
+                .attr("fill", "orange");
+            })
+            .on("mouseout", function(d) {
+                d3.select(this)
+                .attr("fill", "steelblue");
+                });
+        rects.attr("x", padding[3])
+            .attr("y", function(d) {
+                return heightScale(d.Type);
+            })
+            .attr("width", function(d) {
+                return widthScale(d.Homicide);
+            })
+            .attr("height", heightScale.rangeBand())
+            .attr("fill", "steelblue")            .attr("fill", "steelblue")
+
+            .append("title")
+            .text(function(d) {
+                return "Number of violent offenses that involved the use of a" + d.Type;
+            });
+
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(" + padding[3] + "," + (h - padding[2]) + ")")
+            .call(xAxis);
+
+        svg.append("g")
+            .attr("class", "y axis")
+            .attr("transform", "translate(" + padding[3] + ",0)")
+            .call(yAxis);    
+    }
+
+    d3.csv("OffensebyWeapon.csv", function(data) {
+        
+        var toplevel = data.filter(function(d) {
+            return !d.Parent
+        })
+        
+    drawchart(toplevel, data)
+    
+    
+       
+        
+            
+    });
+    
+    
+</script>
+
+	</body>
+</html>

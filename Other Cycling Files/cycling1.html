@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Loading CSV Data with D3</title>
+		<script type="text/javascript" src="../d3.v3.js"></script>
+	</head>
+	<body>
+
+		<p>Not much to see here; try looking in the console!</p>
+        <svg width="500" height="200">
+			<line x1="10" y1="10" x2="190" y2="190" stroke="#CF7B25" stroke-width="3" />
+			<line x1="190" y1="190" x2="400" y2="0" stroke="#CF7B25" stroke-width="3" />
+			<rect x="200" y="10" width="100" height="100" fill="#99C0DD" />
+			<circle cx="300" cy="140" r="46" fill="#99C0DD " />
+			<text x="208" y="100" fill="#811934" font-size="34" font-weight="bold" font-family="Helvetica">Must. Ride. Bikes.</text>
+		</svg>
+
+		<script type="text/javascript">		
+
+
+			//Load in contents of CSV file
+			d3.csv("Cycling.csv", function(data) {
+
+				//Now CSV contents have been transformed into
+				//an array of JSON objects.
+
+				//Log 'data' to the console, for verification.
+				console.log(data);
+
+			});
+
+
+		</script>
+
+	</body>
+</html>
