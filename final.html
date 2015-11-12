@@ -2,8 +2,9 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Cleaning Up</title>
+		<title>Weapons By Type of Offense</title>
 		<script type="text/javascript" src="../d3.v3.js"></script>
+        <script src="js/jquery-1.11.3.min.js"></script>
         <link rel="stylesheet" href="css/final.css">
 
 	</head>
@@ -41,11 +42,11 @@
     function drawchart(currentdata, alldata) {
         svg.selectAll("*").remove() 
         currentdata.sort(function(a, b) {
-         return d3.descending(+a.Homicide, +b.Homicide);
+         return d3.descending(+a["Total Offenses Involving Weapons"], +b["Total Offenses Involving Weapons"]);
         });
 
         widthScale.domain([0, d3.max(currentdata, function(d) {
-            return +d.Homicide;
+            return +d["Total Offenses Involving Weapons"];
         })]);
 
         heightScale.domain(currentdata.map(function(d) {
@@ -79,7 +80,7 @@
                 return heightScale(d.Type);
             })
             .attr("width", function(d) {
-                return widthScale(d.Homicide);
+                return widthScale(d["Total Offenses Involving Weapons"]);
             })
             .attr("height", heightScale.rangeBand())
             .attr("fill", "steelblue")            .attr("fill", "steelblue")

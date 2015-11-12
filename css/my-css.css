@@ -1,0 +1,88 @@
+
+
+h1 { 
+  font-family: Helvetica;
+    font-weight: bold; 
+    color: #A5284F;
+    padding: 50px;
+}
+
+h3 { 
+  font-family: Helvetica;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #393D40;
+}
+
+<!--
+.dynamicsparkline {
+    width: 2em;
+    height: 5em;
+}
+
+-->
+
+<!--
+div.paragraphs {
+ background-color: #EBEFF2;
+margin: 0;
+ padding: 50px;
+        font-family: Helvetica;
+    font-size: 1em;
+}
+
+-->
+
+img.img-responsive {
+    margin: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+p {
+    font-family: Helvetica;
+    font-size: 1em;
+}
+
+.description {
+    font-family: Helvetica;
+    font-size: 1.2em;
+    padding-top: 20px;
+}
+
+
+.jqstooltip {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+<!--
+.firstLetter {
+  float       : left;
+  font-size   : 3.26em;
+  line-height : 0.5;
+  margin      : 0.205em 0.08em 0 0;
+}
+
+.firstLetter + span {
+  margin-left : -0.5em;
+}
+
+
+
+
+
+/*
+ * A better looking default horizontal rule
+ */
+
+/*
+.hr {
+    display: block;
+    height: 10px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+*/
