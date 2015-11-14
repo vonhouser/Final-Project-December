@@ -101,10 +101,9 @@
                             return +d[policy];
                         })
                     ]);
-                    svg.selectAll("rect")    
-                        .data(alldata)
-                        .enter()
+                    svg.selectAll(".bar")
                         .attr("fill", function(d) {
+                            console.log(d);
                             return colorScale(d[policy]);
                         })
                 })
@@ -115,11 +114,6 @@
                 .append("option")
                 .text(function(d) {
                     return d
-                })
-                .property("selected", function(d) {
-                    if (d === policies) {
-                        return(true)
-                    }
                 });
 
 			d3.csv("HomicidebyState.csv", function(data) {
@@ -149,6 +143,7 @@
                 
                 rects.enter()
                     .append("rect")
+                    .attr('class', 'bar')
                     .attr("fill", function(d) {
                         return colorScale(d["Open carry index"]);
                     })

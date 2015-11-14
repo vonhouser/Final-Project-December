@@ -39,7 +39,10 @@
         .attr("width", w)
         .attr("height", h);
     
-    function drawchart(currentdata, alldata) {
+    var crimes = ["Assault", "Homicide", "Kidnapping or Abduction", "Sex Offenses", "Extortion", "Robbery"];
+
+
+    function drawchart(currentdata, alldata, crime) {
         svg.selectAll("*").remove() 
         currentdata.sort(function(a, b) {
          return d3.descending(+a["Total Offenses Involving Weapons"], +b["Total Offenses Involving Weapons"]);
@@ -75,6 +78,7 @@
                 d3.select(this)
                 .attr("fill", "steelblue");
                 });
+
         rects.attr("x", padding[3])
             .attr("y", function(d) {
                 return heightScale(d.Type);
@@ -99,7 +103,27 @@
             .attr("class", "y axis")
             .attr("transform", "translate(" + padding[3] + ",0)")
             .call(yAxis);    
-    }
+
+
+    d3.select("body")
+                .append("select")
+                .on("change", function(d) {
+                    var crime = d3.select("select").property("value")
+                    drawchart(currentdata, alldata, crime)
+                    })
+                .selectAll("option")
+                .data(crimes)
+                .enter()
+                .append("option")
+                .text(function(d) {
+                    return d
+                })
+                .property("selected", function(d) {
+                if (d === crime) {
+                    return(true)
+                }
+            });
+}
 
     d3.csv("OffensebyWeapon.csv", function(data) {
         

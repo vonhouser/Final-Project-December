@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Force Layout Test</title>
+		<script type="text/javascript" src="../d3.v3.js"></script>
+		<style type="text/css">
+
+
+        </head>
+ <body>
+
+<script type="text/javascript">
+
+
+            var dataset = {
+                nodes: [
+                    {name: "Assault Weapons"},
+                    {name: "Handguns"},
+                    {name: "Shotguns"},
+                    {name: "Knives"},
+                    {name: "Fists"}
+                ]
+
+                edges: [
+                    {source: 0, target: 1},
+                    {source: 2, target: 2},
+                    {source: 3, target: 3},
+                    {source: 4, target: 4},
+                    {source: 1, target: 5}
+                ],
+            }
+
+            var edges = svg.selectAll("line")
+                .data(dataset.edges)
+                .enter()
+                .append("line")
+                .style("stroke", "#ccc")
+                .style("stroke-width", 1);
+
+            var force = d3.layout.force()
+                .nodes(dataset.nodes)
+                .links(dataset.edges)
+                .size([200, 400])
+                .start();
+
+            var nodes = svg.selectAll("circle")
+                .data(dataset.nodes)
+                .enter()
+                .append("circle")
+                .attr("r", 10)
+                .style("fill", function(d, i) {
+                    return colors(i);
+                })
+                .call(force.drag);
+
+            force.on("tick", function() {
+
+            edges.attr("x1"
+
+
+
+
+
+
+
+
+</script>
+
+	</body>
+</html>
