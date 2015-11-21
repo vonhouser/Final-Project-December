@@ -42,23 +42,23 @@
     var crimes = ["Assault", "Homicide", "Kidnapping or Abduction", "Sex Offenses", "Extortion", "Robbery"];
 
 
-    function drawchart(currentdata, alldata, crime) {
-        svg.selectAll("*").remove() 
+function drawchart(currentdata, alldata, crime) {
         currentdata.sort(function(a, b) {
-         return d3.descending(+a["Total Offenses Involving Weapons"], +b["Total Offenses Involving Weapons"]);
+            return d3.descending(+a[crime], +b[crime]);
         });
 
         widthScale.domain([0, d3.max(currentdata, function(d) {
-            return +d["Total Offenses Involving Weapons"];
+            return +d[crime];
         })]);
 
-        heightScale.domain(currentdata.map(function(d) {
+        heightScale.domain(currentdata.filter(function(d) { return d[crime] > 0; }).map(function(d) {
             return d.Type;
         }));
 
         var rects = svg.selectAll("rect")
-            .data(currentdata)
-            .enter()
+            .data(currentdata.filter(function(d) { return d[crime] > 0; }));
+            rects.exit().remove();
+            rects.enter()
             .append("rect")
             .on("click", function(d) {  //filter so that only top level cats show
                 var Parent = d.Type
@@ -68,7 +68,8 @@
                 if (toplevel.length ===  0) { //make sure empty categories don't show up
                     return
                 }
-                drawchart(toplevel, alldata)
+
+                drawchart(toplevel, alldata, crime)
             })
             .on("mouseover", function() {
                 d3.select(this)
@@ -77,39 +78,54 @@
             .on("mouseout", function(d) {
                 d3.select(this)
                 .attr("fill", "steelblue");
-                });
+                })
+            .append("title");
 
-        rects.attr("x", padding[3])
+        rects.transition().duration(1000)
+            .attr("x", padding[3])
             .attr("y", function(d) {
                 return heightScale(d.Type);
             })
             .attr("width", function(d) {
-                return widthScale(d["Total Offenses Involving Weapons"]);
+                return widthScale(d[crime]);
             })
             .attr("height", heightScale.rangeBand())
-            .attr("fill", "steelblue")            .attr("fill", "steelblue")
-
-            .append("title")
+            .attr("fill", "steelblue")
+            .select("title")
             .text(function(d) {
                 return "Number of violent offenses that involved the use of a" + d.Type;
             });
 
-        svg.append("g")
-            .attr("class", "x axis")
+        svg.select("g.x.axis")
             .attr("transform", "translate(" + padding[3] + "," + (h - padding[2]) + ")")
             .call(xAxis);
 
-        svg.append("g")
-            .attr("class", "y axis")
+        svg.select("g.y.axis")
             .attr("transform", "translate(" + padding[3] + ",0)")
             .call(yAxis);    
+}
 
 
+
+    d3.csv("OffensebyWeapon.csv", function(data) {
+
+        var toplevel = data.filter(function(d) {
+            return !d.Parent
+        })
+
+    svg.append("g")
+            .attr("class", "x axis");
+    svg.append("g")
+            .attr("class", "y axis");
+
+    drawchart(toplevel, data, "Total Offenses Involving Weapons")
+
+    var crime;
     d3.select("body")
                 .append("select")
                 .on("change", function(d) {
-                    var crime = d3.select("select").property("value")
-                    drawchart(currentdata, alldata, crime)
+                    crime = d3.select("select").property("value")
+                    drawchart(toplevel, data, crime)
                     })
                 .selectAll("option")
                 .data(crimes)
@@ -123,17 +139,6 @@
                     return(true)
                 }
             });
-}
-
-    d3.csv("OffensebyWeapon.csv", function(data) {
-        
-        var toplevel = data.filter(function(d) {
-            return !d.Parent
-        })
-        
-    drawchart(toplevel, data)
-    
-    
        
         
             
