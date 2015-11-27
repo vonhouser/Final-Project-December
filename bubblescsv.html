@@ -54,6 +54,18 @@ function drawchart(data, alldata, state) {
         
         svg.selectAll("*").remove()
         d3.select("select").remove(); 
+        d3.select(".back-button").remove();
+
+        d3.select('body')
+            .append('button')
+            .text('Back')
+            .attr('class', 'back-button')
+            .on('click', function () {
+                var data = alldata.filter(function(d) {
+                    return !d.Parent && !d.Hide
+                });
+                drawchart(data, alldata);
+            });
     
         d3.select("body")
             .append("select")
