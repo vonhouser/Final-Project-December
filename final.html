@@ -4,6 +4,8 @@
 		<meta charset="utf-8">
 		<title>Weapons By Type of Offense</title>
 		<script type="text/javascript" src="../d3.v3.js"></script>
+
+
         <script src="js/jquery-1.11.3.min.js"></script>
         <link rel="stylesheet" href="css/final.css">
 
@@ -14,138 +16,14 @@
 
 		<p>Weapons Used in the Commission of Various Criminal Offenses. Source: <a href="http://www.bjs.gov/index.cfm?ty=tp&tid=43">BJS</a>, 2012</p>
 
-		
-<script type="text/javascript">
-    var w = 700;
-    var h = 600;
-    var padding = [20, 10, 30, 180]; //Top, right, bottom, left
-
-    var widthScale = d3.scale.linear()
-        .range([0, w - padding[1] - padding[3]]);
-
-    var heightScale = d3.scale.ordinal()
-        .rangeRoundBands([padding[0], h - padding[2]], 0.1);
-
-    var xAxis = d3.svg.axis()
-        .scale(widthScale)
-        .orient("bottom");
-
-    var yAxis = d3.svg.axis()
-        .scale(heightScale)
-        .orient("left");
-
-    var svg = d3.select("body")
-        .append("svg")
-        .attr("width", w)
-        .attr("height", h);
-    
-    var crimes = ["Assault", "Homicide", "Kidnapping or Abduction", "Sex Offenses", "Extortion", "Robbery"];
-
-
-function drawchart(currentdata, alldata, crime) {
-        currentdata.sort(function(a, b) {
-            return d3.descending(+a[crime], +b[crime]);
-        });
-
-        widthScale.domain([0, d3.max(currentdata, function(d) {
-            return +d[crime];
-        })]);
-
-        heightScale.domain(currentdata.filter(function(d) { return d[crime] > 0; }).map(function(d) {
-            return d.Type;
-        }));
-
-        var rects = svg.selectAll("rect")
-            .data(currentdata.filter(function(d) { return d[crime] > 0; }));
-            rects.exit().remove();
-            rects.enter()
-            .append("rect")
-            .on("click", function(d) {  //filter so that only top level cats show
-                var Parent = d.Type
-                var toplevel = alldata.filter(function(d) {
-                    return d.Parent === Parent
-                }) 
-                if (toplevel.length ===  0) { //make sure empty categories don't show up
-                    return
-                }
-
-                drawchart(toplevel, alldata, crime)
-            })
-            .on("mouseover", function() {
-                d3.select(this)
-                .attr("fill", "orange");
-            })
-            .on("mouseout", function(d) {
-                d3.select(this)
-                .attr("fill", "steelblue");
-                })
-            .append("title");
-
-        rects.transition().duration(1000)
-            .attr("x", padding[3])
-            .attr("y", function(d) {
-                return heightScale(d.Type);
-            })
-            .attr("width", function(d) {
-                return widthScale(d[crime]);
-            })
-            .attr("height", heightScale.rangeBand())
-            .attr("fill", "steelblue")
-            .select("title")
-            .text(function(d) {
-                return "Number of violent offenses that involved the use of a" + d.Type;
-            });
-
-        svg.select("g.x.axis")
-            .attr("transform", "translate(" + padding[3] + "," + (h - padding[2]) + ")")
-            .call(xAxis);
-
-        svg.select("g.y.axis")
-            .attr("transform", "translate(" + padding[3] + ",0)")
-            .call(yAxis);    
-}
+<div id="dropdown"></div>
+<div id="final"></div>
 
 
 
-    d3.csv("OffensebyWeapon.csv", function(data) {
 
-        var toplevel = data.filter(function(d) {
-            return !d.Parent
-        })
 
-    svg.append("g")
-            .attr("class", "x axis");
-    svg.append("g")
-            .attr("class", "y axis");
-
-    drawchart(toplevel, data, "Total Offenses Involving Weapons")
-
-    var crime;
-    d3.select("body")
-                .append("select")
-                .on("change", function(d) {
-                    crime = d3.select("select").property("value")
-                    drawchart(toplevel, data, crime)
-                    })
-                .selectAll("option")
-                .data(crimes)
-                .enter()
-                .append("option")
-                .text(function(d) {
-                    return d
-                })
-                .property("selected", function(d) {
-                if (d === crime) {
-                    return(true)
-                }
-            });
-       
         
-            
-    });
-    
-    
-</script>
-
+<script type="text/javascript" src="js/final2.js"></script>
 	</body>
 </html>

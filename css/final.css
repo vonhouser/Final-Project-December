@@ -11,29 +11,49 @@ body {
 			p {
 				font-size: 14px;
 				margin: 10px 0 0 0;
+                font-family: Helvetica, Arial, sans-serif;
 			}
 
 			svg {
-				background-color: white;
+				background-color:transparent
 			}
 
-/*			rect:hover {
-				fill: orange;
-			}
-*/			
 			.axis path,
 			.axis line {
 				fill: none;
-				stroke: black;
+				stroke: white;
 				shape-rendering: crispEdges;
 			}
 			
 			.axis text {
-				font-family: sans-serif;
-				font-size: 11px;
+				font-family: Helvetica, Arial, sans-serif;
+				font-size: 12px;
 			}
 
 			.y.axis path,
 			.y.axis line {
 				opacity: 0;
 			}
+
+text {
+    fill: white;
+}
+
+#final {
+    padding-top: 40px;
+
+}
+
+
+#dropdown {
+    padding-top: 40px;
+    padding-right: 40px;
+}
+
+rect {
+    fill: steelblue;
+}
+
+rect:hover {
+    fill: orange;
+}

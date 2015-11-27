@@ -9,6 +9,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/final.css">
+
 
     <title>Cover Template for Bootstrap</title>
 
@@ -20,7 +24,7 @@
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+   <!-- <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -31,49 +35,72 @@
 
   <body>
 
-    <div class="site-wrapper">
-<div class="dropdown navbar navbar-default">
-              <nav>
-                  <li class="title"><a href="#">Home</a></li>
-                    <li><button class="hamburger btn btn-default dropdown-toggle glyphicon glyphicon-menu-hamburger">
-</button></li>
-              </nav>
+<div class="site-wrapper">
 
-          </div>
-      <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-
-
-
-
-          <div class="cover">
-            <h1 class="cover-heading">People Cause Crime, but Weapons Help.</h1>
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-            <p class="lead">
-              <a href="#" class="btn btn-lg btn-default">Learn more</a>
-            </p>
-          </div>
-
-          <div class="mastfoot">
-            <div class="inner">
-              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+                <div id="navbar">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="http://www.baltimorerowing.org">Weapons Used by Crime</a></li>
+                <li><a href="http://www.baltimorerowing.org/safety-manual/">State Gun Policies</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Additional Resources <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="http://www.stationnorth.org/">North</a></li>
+                    <li><a href="http://southpark.cc.com/">South</a></li>
+                    <li><a href="http://www.harboreast.com/">East</a></li>
+                    <li><a href="http://www.cornelwest.com/">West</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
             </div>
-          </div>
 
+
+<div class="row">
+
+    <div class="col-md-2">
+    <button class="btn btn-primary" id='trigger'>A Little Background?</button>
+        <div id='slider'>
+        <p>Some text here.</p>
         </div>
-
-      </div>
-
     </div>
+    <div class="col-md-8" id="final"></div>
+    <div class="col-md-2" id="dropdown">
+    <p> Choose which crime you would like to see the weapons used in.</p>
+    </div>
+
+
+
+</div>
+<div class="mastfoot row">
+    <div class="inner col-md-12">
+        <p>Created by <a href="http://fuckingdataviz.com">Taj Carson</a>.</p>
+    </div>
+</div>
+
+
+
+
+    </div> <!-- end div for whole site that includes background image -->
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Placed at the end of the document so the pages load faster
+    Also, load scripts after you call the div for the D3 chart. Who knew?-->
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
     <script src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/slidereveal.js"></script>
+    <script type="text/javascript" src="js/d3.v3.js"></script>
+    <script type="text/javascript" src="js/final2.js"></script>
+    <script type="text/javascript" src="js/slider.js"></script>
+
+
+
   </body>
 </html>

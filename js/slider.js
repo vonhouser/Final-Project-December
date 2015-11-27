@@ -1,0 +1,4 @@
+$('#slider').slideReveal({
+  trigger: $("#trigger")
+
+});
