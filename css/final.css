@@ -51,9 +51,9 @@ text {
 }
 
 rect {
-    fill: steelblue;
+    fill: red;
 }
 
 rect:hover {
-    fill: orange;
+    fill: steelblue;
 }
