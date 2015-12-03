@@ -1,5 +1,5 @@
-var w = 600;
-var h = 500;
+var w = 800;
+var h = 820;
 var padding = [20, 10, 30, 180]; //Top, right, bottom, left
 
 var widthScale = d3.scale.linear()
@@ -62,15 +62,19 @@ function drawchart(currentdata, alldata, crime) {
         })
         .append("title");
 
-    rects.transition().duration(1000)
+    rects
         .attr("x", padding[3])
         .attr("y", function(d) {
             return heightScale(d.Type);
         })
+        .attr('width', 0)
+        .attr("height", heightScale.rangeBand())
+        .transition().duration(1000)
+
         .attr("width", function(d) {
             return widthScale(d[crime]);
         })
-        .attr("height", heightScale.rangeBand())
+
         .select("title")
         .text(function(d) {
             return "Number of violent offenses that involved the use of a" + d.Type;
@@ -83,6 +87,20 @@ function drawchart(currentdata, alldata, crime) {
     svg2.select("g.y.axis")
         .attr("transform", "translate(" + padding[3] + ",0)")
         .call(yAxis);
+
+    //svg2.select(".axis.y").selectAll("text").remove();
+
+    var ticks = svg2.select(".axis.y").selectAll(".tick")
+        .data(currentdata)
+        .attr('class', function (d) {
+            return d.img ? 'has-image' : 'no-image';
+        })
+        .append("svg:image")
+        .attr("xlink:href", function (d) { return d.img ; })
+        .attr("width", 100)
+        .attr("height", 100)
+        .attr("x", -120)
+        .attr("y", -50);
 }
 
 d3.csv("OffensebyWeapon.csv", function(data) {

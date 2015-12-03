@@ -79,9 +79,6 @@ function drawbubblechart(data, alldata2, state) {
 
     //create the bubbles
         bubbles.append("circle")
-            .attr("r", function(d) {
-                return d.r;
-            })
             .attr("cx", function(d) {
                 return d.x;
             })
@@ -91,6 +88,7 @@ function drawbubblechart(data, alldata2, state) {
             .style("fill", function(d) {
                 return color(d.value);
             })
+            .attr('r', 0)
             .on("click", function(d) { //filter so that only top level cats show
                 var Parent = d.Type
                 var toplevel2 = alldata2.filter(function(d) {
@@ -100,7 +98,14 @@ function drawbubblechart(data, alldata2, state) {
                     return
                 }
                 drawbubblechart(toplevel2, alldata2)
+            })
+            .transition()
+            .duration(1000)
+            .attr("r", function(d) {
+                return d.r;
             });
+
+
 
     var force = d3.layout.force()
     .nodes(state)

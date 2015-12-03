@@ -130,6 +130,10 @@ body {
   background-color: black;
 }
 
+.has-image text {
+    display: none;
+}
+
 
 /*
  * Affix and center

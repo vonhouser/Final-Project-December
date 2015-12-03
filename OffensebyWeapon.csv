@@ -1,25 +1,25 @@
-Type,Total Offenses Involving Weapons,Assault,Homicide,Kidnapping or Abduction,Sex Offenses,Extortion,Robbery,Weapons Violations,Total,Parent
-Firearms,89674,52086,2675,2312,870,45,31686,47715,137389,
-Firearm,18169,12095,831,355,240,19,4629,8733,,Firearms
-Automatic Firearm,1140,705,30,29,9,1,366,553,,Firearms
-Handgun,54594,28719,1405,1543,498,16,22413,27299,,Firearms
-Automatic Handgun,5854,2997,126,132,58,1,2540,2977,,Firearms
-Rifle,2762,2175,134,54,15,2,382,3126,,Firearms
-Automatic Rifle,386,252,24,10,3,2,95,228,,Firearms
-Shotgun,4193,3112,103,154,22,0,802,3136,,Firearms
-Automatic Shotgun,158,136,3,0,0,0,19,78,,Firearms
-Other Firearm,2303,1821,17,33,24,3,405,1539,,Firearms
-Automatic Other Firearm,115,74,2,2,1,1,35,46,,Firearms
-Knife/Cutting Instrument,48188,40431,445,901,698,12,5701,12399,60587,
-"Hands, Fist, or Feet",788005,710692,279,8158,44776,196,23904,385,788390,
-All Other,151819,134858,698,1628,6749,255,7631,9470,161289,
-Blunt Object,32462,29748,165,226,236,3,2084,2479,,All Other
-Motor Vehicle,14249,13743,101,139,21,0,245,52,,All Other
-Poison,215,190,4,4,6,0,11,26,,All Other
-Explosives,185,114,0,3,3,1,64,1112,,All Other
-Fire/Incendiary Device,769,689,37,11,9,3,20,214,,All Other
-Drugs/Narcotics/Sleeping Pills,716,375,40,14,277,2,8,65,,All Other
-Asphyxiation,2021,1819,48,52,65,0,37,3,,All Other
-Other Weapon,74559,68886,110,617,2362,164,2420,4178,,All Other
-Unknown Weapons,26643,19294,193,562,3770,82,2742,1341,27984,
-No Weapon/Force Involved,103960,73897,0,3367,20560,677,5459,2511,106471,
+Type,Total Offenses Involving Weapons,Assault,Homicide,Kidnapping or Abduction,Sex Offenses,Extortion,Robbery,Weapons Violations,Total,Parent,img
+Firearms,89674,52086,2675,2312,870,45,31686,47715,137389,,img/gun.png
+Firearm,18169,12095,831,355,240,19,4629,8733,,Firearms,
+Automatic Firearm,1140,705,30,29,9,1,366,553,,Firearms,
+Handgun,54594,28719,1405,1543,498,16,22413,27299,,Firearms,
+Automatic Handgun,5854,2997,126,132,58,1,2540,2977,,Firearms,
+Rifle,2762,2175,134,54,15,2,382,3126,,Firearms,
+Automatic Rifle,386,252,24,10,3,2,95,228,,Firearms,
+Shotgun,4193,3112,103,154,22,0,802,3136,,Firearms,
+Automatic Shotgun,158,136,3,0,0,0,19,78,,Firearms,
+Other Firearm,2303,1821,17,33,24,3,405,1539,,Firearms,
+Automatic Other Firearm,115,74,2,2,1,1,35,46,,Firearms,
+Knife/Cutting Instrument,48188,40431,445,901,698,12,5701,12399,60587,,
+"Hands, Fist, or Feet",788005,710692,279,8158,44776,196,23904,385,788390,,
+All Other,151819,134858,698,1628,6749,255,7631,9470,161289,,
+Blunt Object,32462,29748,165,226,236,3,2084,2479,,All Other,
+Motor Vehicle,14249,13743,101,139,21,0,245,52,,All Other,
+Poison,215,190,4,4,6,0,11,26,,All Other,
+Explosives,185,114,0,3,3,1,64,1112,,All Other,
+Fire/Incendiary Device,769,689,37,11,9,3,20,214,,All Other,
+Drugs/Narcotics/Sleeping Pills,716,375,40,14,277,2,8,65,,All Other,
+Asphyxiation,2021,1819,48,52,65,0,37,3,,All Other,
+Other Weapon,74559,68886,110,617,2362,164,2420,4178,,All Other,
+Unknown Weapons,26643,19294,193,562,3770,82,2742,1341,27984,,
+No Weapon/Force Involved,103960,73897,0,3367,20560,677,5459,2511,106471,,
