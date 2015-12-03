@@ -9,7 +9,7 @@ var bubble = d3.layout.pack()
     .size([diameter, diameter])
     .padding(1.5);
 
-var svg = d3.select("body")
+var svg1 = d3.select("#bubblechart")
     .append("svg")
     .attr("width", diameter)
     .attr("height", diameter)
@@ -17,7 +17,7 @@ var svg = d3.select("body")
 
 var states = ["Alaska", "Arizona", "Arkansas","California","Colorado", "Connecticut", "Delaware", "DC", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming", "Virgin Islands"]
 
-function drawchart(data, alldata2, state) {
+function drawbubblechart(data, alldata2, state) {
         if (!state) {
             state = "weaponTotalParent";
             }
@@ -28,11 +28,11 @@ function drawchart(data, alldata2, state) {
         return d;
         });
 
-        svg.selectAll("*").remove()
+        svg1.selectAll("*").remove()
         d3.select("select").remove();
         d3.select(".back-button").remove();
 
-        d3.select('body')
+        d3.select('#bubbles')
             .append('button')
             .text('Back')
             .attr('class', 'back-button')
@@ -40,14 +40,14 @@ function drawchart(data, alldata2, state) {
                 var data = alldata2.filter(function(d) {
                     return !d.Parent && !d.Hide
                 });
-                drawchart(data, alldata2);
+                drawbubblechart(data, alldata2);
             });
 
-        d3.select("bubbles")
+        d3.select("#bubbles")
             .append("select")
             .on("change", function(d) {
             var state = d3.select("select").property("value")
-            drawchart(data, alldata2, state)
+            drawbubblechart(data, alldata2, state)
             })
 
             .selectAll("option")
@@ -71,7 +71,7 @@ function drawchart(data, alldata2, state) {
         });
 
     //setup the chart
-        var bubbles = svg.append("g")
+        var bubbles = svg1.append("g")
             .attr("transform", "translate(0,0)")
             .selectAll(".bubble")
             .data(nodes)
@@ -93,13 +93,13 @@ function drawchart(data, alldata2, state) {
             })
             .on("click", function(d) { //filter so that only top level cats show
                 var Parent = d.Type
-                var toplevel = alldata2.filter(function(d) {
+                var toplevel2 = alldata2.filter(function(d) {
                     return d.Parent === Parent
                 })
-                if (toplevel.length === 0) { //make sure empty categories don't show up
+                if (toplevel2.length === 0) { //make sure empty categories don't show up
                     return
                 }
-                drawchart(toplevel, alldata2)
+                drawbubblechart(toplevel2, alldata2)
             });
 
     var force = d3.layout.force()
@@ -146,6 +146,6 @@ d3.csv("UCRStateWeapons3.csv", function(error, data) {
     return !d.Parent && !d.Hide
      })
 
-drawchart(data, alldata2);
+drawbubblechart(data, alldata2);
 
 });

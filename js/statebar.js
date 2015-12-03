@@ -22,7 +22,7 @@
 							.scale(heightScale)
 							.orient("left");
 
-			var svg = d3.select("body")
+			var svg = d3.select("#statebar")
 						.append("svg")
 						.attr("width", w)
 						.attr("height", h);
@@ -33,7 +33,7 @@
 
             var alldata;
 
-            d3.select("body")
+            d3.select("#statebar")
                 .append("select")
                 .on("change", function(d) {
                     var policy = d3.select("select").property("value")

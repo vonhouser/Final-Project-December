@@ -16,7 +16,7 @@ var yAxis = d3.svg.axis()
     .scale(heightScale)
     .orient("left");
 
-var svg = d3.select("#final")
+var svg2 = d3.select("#finalchart")
     .append("svg")
     .attr("width", w)
     .attr("height", h);
@@ -40,7 +40,7 @@ function drawchart(currentdata, alldata, crime) {
     }));
 
 
-    var rects = svg.selectAll("rect")
+    var rects = svg2.selectAll("rect")
         .data(currentdata.filter(function(d) {
             return d[crime] > 0;
         }));
@@ -76,11 +76,11 @@ function drawchart(currentdata, alldata, crime) {
             return "Number of violent offenses that involved the use of a" + d.Type;
         });
 
-    svg.select("g.x.axis")
+    svg2.select("g.x.axis")
         .attr("transform", "translate(" + padding[3] + "," + (h - padding[2]) + ")")
         .call(xAxis);
 
-    svg.select("g.y.axis")
+    svg2.select("g.y.axis")
         .attr("transform", "translate(" + padding[3] + ",0)")
         .call(yAxis);
 }
@@ -90,9 +90,9 @@ d3.csv("OffensebyWeapon.csv", function(data) {
         return !d.Parent
     });
 
-    svg.append("g")
+    svg2.append("g")
         .attr("class", "x axis");
-    svg.append("g")
+    svg2.append("g")
         .attr("class", "y axis");
 
     drawchart(toplevel, data, "Total Offenses Involving Weapons");
