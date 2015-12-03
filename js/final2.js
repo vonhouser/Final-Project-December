@@ -39,6 +39,7 @@ function drawchart(currentdata, alldata, crime) {
         return d.Type;
     }));
 
+
     var rects = svg.selectAll("rect")
         .data(currentdata.filter(function(d) {
             return d[crime] > 0;
