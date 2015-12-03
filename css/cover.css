@@ -39,7 +39,6 @@ body {
 .site-wrapper {
   background-image: url(../img/crimeheadergray.jpg);
   background-size: cover;
-  display: table;
   width: 100%;
   height: 100%; /* For at least Firefox */
   min-height: 100%;
@@ -47,22 +46,13 @@ body {
           box-shadow: inset 0 0 100px rgba(0,0,0,.5);
 }
 
-.site-wrapper-inner {
-  display: table-cell;
-  vertical-align: top;
-}
 
-.cover-container {
-  margin-right: auto;
-  margin-left: auto;
-}
 
 /* Padding for spacing */
 .inner {
   background-color: gray;
   height: 20px;
 }
-
 
 /*
  * Header

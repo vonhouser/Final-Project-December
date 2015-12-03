@@ -2,36 +2,35 @@ body {
 				background-color: white;
 				font-family: Helvetica, Arial, sans-serif;
 			}
-
-			h1 {
+h1 {
 				font-size: 24px;
 				margin: 0;
 			}
 
-			p {
+p {
 				font-size: 14px;
 				margin: 10px 0 0 0;
                 font-family: Helvetica, Arial, sans-serif;
 			}
 
-			svg {
+svg {
 				background-color:transparent
 			}
 
-			.axis path,
-			.axis line {
+.axis path,
+.axis line {
 				fill: none;
 				stroke: white;
 				shape-rendering: crispEdges;
 			}
 			
-			.axis text {
+.axis text {
 				font-family: Helvetica, Arial, sans-serif;
 				font-size: 12px;
 			}
 
-			.y.axis path,
-			.y.axis line {
+.y.axis path,
+.y.axis line {
 				opacity: 0;
 			}
 
