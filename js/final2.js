@@ -55,7 +55,6 @@ function drawchart(currentdata, alldata, crime) {
             if (toplevel.length === 0) { //make sure empty categories don't show up
                 return
             }
-
             d3.select('.back-button').style('display', 'block');
 
             drawchart(toplevel, alldata, crime)
@@ -103,8 +102,8 @@ function drawchart(currentdata, alldata, crime) {
         .attr("y", -50);
 }
 
-d3.csv("OffensebyWeapon.csv", function(data1) {
-    var toplevel = data1.filter(function(d) {
+d3.csv("OffensebyWeapon.csv", function(data) {
+    var toplevel = data.filter(function(d) {
         return !d.Parent
     });
 
@@ -113,7 +112,7 @@ d3.csv("OffensebyWeapon.csv", function(data1) {
     svg2.append("g")
         .attr("class", "y axis");
 
-    drawchart(toplevel, data1, "Total Offenses Involving Weapons");
+    drawchart(toplevel, data, "Total Offenses Involving Weapons");
 
     var crime;
 
@@ -122,7 +121,7 @@ d3.csv("OffensebyWeapon.csv", function(data1) {
         .append("select")
         .on("change", function(d) {
             crime = d3.select("select").property("value")
-            drawchart(toplevel, data1, crime)
+            drawchart(toplevel, data, crime)
         })
         .selectAll("option")
         .data(crimes)
@@ -146,7 +145,7 @@ d3.csv("OffensebyWeapon.csv", function(data1) {
                 return !d.Parent && !d.Hide
             });
             d3.select('.back-button').style('display', 'none');
-            drawchart(toplevel, data1, "Total Offenses Involving Weapons");
+            drawchart(toplevel, data, "Total Offenses Involving Weapons");
         });
 
     // hide on first level
