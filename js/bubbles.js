@@ -17,13 +17,14 @@ var svg1 = d3.select("#bubblechart")
 
 var states = ["Alaska", "Arizona", "Arkansas","California","Colorado", "Connecticut", "Delaware", "DC", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming", "Virgin Islands"]
 
-function drawbubblechart(data, alldata2, state) {
+function drawbubblechart(data3, alldata2, state) {
         if (!state) {
             state = "weaponTotalParent";
             }
 
+
      //convert numerical values from strings to numbers
-        data = data.map(function(d) {
+        data3 = data3.map(function(d) {
         d.value = +d[state];
         return d;
         });
@@ -37,19 +38,18 @@ function drawbubblechart(data, alldata2, state) {
             .text('Back')
             .attr('class', 'back-button')
             .on('click', function () {
-                var data = alldata2.filter(function(d) {
+                var data3 = alldata2.filter(function(d) {
                     return !d.Parent && !d.Hide
                 });
-                drawbubblechart(data, alldata2);
+                drawbubblechart(data3, alldata2);
             });
 
         d3.select("#bubbles")
             .append("select")
             .on("change", function(d) {
             var state = d3.select("select").property("value")
-            drawbubblechart(data, alldata2, state)
+            drawbubblechart(data3, alldata2, state)
             })
-
             .selectAll("option")
             .data(states)
             .enter()
@@ -63,9 +63,11 @@ function drawbubblechart(data, alldata2, state) {
                 }
             });
 
+
+
     //bubbles needs very specific format, convert data to this.
         var nodes = bubble.nodes({
-        children: data
+        children: data3
         }).filter(function(d) {
         return !d.children;
         });
@@ -133,24 +135,15 @@ function drawbubblechart(data, alldata2, state) {
             });
     }
 
-d3.csv("UCRStateWeapons3.csv", function(error, data) {
+d3.csv("UCRStateWeapons3.csv", function(error, data3) {
 
-/*trying to call the force variable
-    force
-      .nodes(data.nodes)
-      .links(data.links)
-      .start();
-*/
-    //trying to initialize force layout//
-
-
-    var alldata2 = data;
+    var alldata2 = data3;
 
     //filter data for parents
-    data = data.filter(function(d) {
+    data3 = data3.filter(function(d) {
     return !d.Parent && !d.Hide
      })
 
-drawbubblechart(data, alldata2);
+drawbubblechart(data3, alldata2);
 
 });

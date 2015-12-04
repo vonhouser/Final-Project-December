@@ -1,5 +1,5 @@
-var w = 800;
-var h = 820;
+var w = 500;
+var h = 500;
 var padding = [20, 10, 30, 180]; //Top, right, bottom, left
 
 var widthScale = d3.scale.linear()
@@ -103,8 +103,8 @@ function drawchart(currentdata, alldata, crime) {
         .attr("y", -50);
 }
 
-d3.csv("OffensebyWeapon.csv", function(data) {
-    var toplevel = data.filter(function(d) {
+d3.csv("OffensebyWeapon.csv", function(data1) {
+    var toplevel = data1.filter(function(d) {
         return !d.Parent
     });
 
@@ -113,7 +113,7 @@ d3.csv("OffensebyWeapon.csv", function(data) {
     svg2.append("g")
         .attr("class", "y axis");
 
-    drawchart(toplevel, data, "Total Offenses Involving Weapons");
+    drawchart(toplevel, data1, "Total Offenses Involving Weapons");
 
     var crime;
 
@@ -122,7 +122,7 @@ d3.csv("OffensebyWeapon.csv", function(data) {
         .append("select")
         .on("change", function(d) {
             crime = d3.select("select").property("value")
-            drawchart(toplevel, data, crime)
+            drawchart(toplevel, data1, crime)
         })
         .selectAll("option")
         .data(crimes)
@@ -146,7 +146,7 @@ d3.csv("OffensebyWeapon.csv", function(data) {
                 return !d.Parent && !d.Hide
             });
             d3.select('.back-button').style('display', 'none');
-            drawchart(toplevel, data, "Total Offenses Involving Weapons");
+            drawchart(toplevel, data1, "Total Offenses Involving Weapons");
         });
 
     // hide on first level

@@ -31,14 +31,14 @@
 
             var rects;
 
-            var alldata;
+            var alldata3;
 
             d3.select("#policybardrop")
                 .append("select")
                 .on("change", function(d) {
                     var policy = d3.select("select").property("value")
                     colorScale.domain([ 0,
-                        d3.max(alldata, function(d) {
+                        d3.max(alldata3, function(d) {
                             return +d[policy];
                         })
                     ]);
@@ -48,7 +48,6 @@
                             return colorScale(d[policy]);
                         })
                 })
-
                 .selectAll("option")
                 .data(policies)
                 .enter()
@@ -57,30 +56,30 @@
                     return d
                 });
 
-			d3.csv("HomicidebyState.csv", function(data) {
-                alldata=data;
-				data.sort(function(a, b) {
+			d3.csv("HomicidebyState.csv", function(data2) {
+                alldata3=data2;
+				data2.sort(function(a, b) {
 					return d3.descending(+a["Total Firearms"], +b["Total Firearms"]);
 				});
 
-                data = data.filter(function(d) {
+                data2 = data2.filter(function(d) {
                 return !d.Hide
                 })
 
-				widthScale.domain([ 0, d3.max(data, function(d) {
+				widthScale.domain([ 0, d3.max(data2, function(d) {
 					return +d["Total Firearms"];
 				}) ]);
 
                 colorScale.domain([ 0,
-                    d3.max(data, function(d) {
+                    d3.max(data2, function(d) {
                         return +d["Open carry index"];
                     })
                 ]);
 
-				heightScale.domain(data.map(function(d) { return d.State; } ));
+				heightScale.domain(data2.map(function(d) { return d.State; } ));
 
 				rects = svg.selectAll("rect")
-                    .data(data);
+                    .data(data2);
 
                 rects.enter()
                     .append("rect")
