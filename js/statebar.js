@@ -33,7 +33,7 @@
 
             var alldata;
 
-            d3.select("#statebar")
+            d3.select("#policybardrop")
                 .append("select")
                 .on("change", function(d) {
                     var policy = d3.select("select").property("value")

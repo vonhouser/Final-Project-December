@@ -10,18 +10,15 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap-theme.css">
     <link rel="stylesheet" href="css/final.css">
     <link rel="stylesheet" href="css/statebar.css">
-
-
-    <title>Cover Template for Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
+
+
+    <title>How We Kill Each Other</title>
+
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -32,96 +29,110 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
 <body>
-
-<div class="site-wrapper container">
-    <div id="navbar">
-              <ul class="nav navbar-nav">
-                <li class="title"><a href="#">How We Kill Each Other</a></li>
-                <li><a href="#">Home</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Additional Resources <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="http://www.stationnorth.org/">North</a></li>
-                    <li><a href="http://southpark.cc.com/">South</a></li>
-                    <li><a href="http://www.harboreast.com/">East</a></li>
-                    <li><a href="http://www.cornelwest.com/">West</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
+  <nav class="navbar navbar-default navbar-fixed-top">  <!-- navbar -->
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand title" href="#">How We Kill Each Other</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
               </ul>
-    </div>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav> <!-- navbar end -->
 
-        <div class="row firstbarrow">  <!----  Bar Chart Div -->
-        <div class="col-md-2">
-    <button class="btn btn-primary" id='trigger'>A Little Background?</button>
+<div class="row bubblechartrow">  <!----  Bubble Div -->
+        <div class="col-md-1">
+            <button class="btn btn-primary slider" id='trigger'>A Little Background?</button>
             <div id='slider'>
         <p>Some text here.</p>
             </div>
         </div>
-
-        <div class="col-md-8" id="final">
-    
-    <h1>Weapons Used by Type of Offense</h1>
-
-		<p>Weapons Used in the Commission of Various Criminal Offenses. Source: <a href="http://www.bjs.gov/index.cfm?ty=tp&tid=43">BJS</a>, 2012</p>
-        </div>
-        <div class="col-md-2" id="dropdown">
-    <p> Choose which crime you would like to see the weapons used in.</p>
-        </div>
-            <DIV ID="finalchart"></DIV>
-        </div>   <!----  End Bar Chart Div -->
-        
- 
-    <div class="row bubblechartrow">  <!----  Bubble Div -->
-        <div class="col-md-2">
-        </div>
-        <div class="col-md-8" id="bubbles">
+        <div class="col-md-9" id="bubblechart">
 
     <h1>Bubbles!</h1>
 
 		<p>Weapons Used in the Commission of Various Criminal Offenses. Source: <a href="http://www.bjs.gov/index.cfm?ty=tp&tid=43">BJS</a>, 2012</p>
         </div>
 
-        <div class="col-md-2" id="#">
+        <div class="col-md-2" id="bubbles">
+        <a id="bubbleback"></a>
     <p> Choose which crime you would like to see the weapons used in.</p>
-            
+
         </div>
-        <DIV CLASS="COL-MD-12"><div id="bubblechart"></div></DIV>
-    </div>  <!----  End Bubble Div -->
+
+</div>  <!----  End Bubble Div -->
+
+<div class="row firstbarrow">  <!----  Bar Chart Div -->
+        <div class="col-md-1">
+        </div>
+
+        <div class="col-md-9" id="finalchart">
+        <h1>Weapons Used by Type of Offense</h1>
+
+		<p>Weapons Used in the Commission of Various Criminal Offenses. Source: <a href="http://www.bjs.gov/index.cfm?ty=tp&tid=43">BJS</a>, 2012</p>
+
+        </div>
+        <div class="col-md-2" id="statedropbar">
+        <a id="statebarback"></a>
+    <p class="dropbar"> Choose which crime you would like to see the weapons used in.</p>
+        </div>
+
+        </div>   <!----  End Bar Chart Div -->
+
+
 
     <div class="row statebarrow">  <!----  StateBar Div -->
-        <div class="col-md-2">
+        <div class="col-md-1">
         </div>
-        <div class="col-md-8" id="statebar">
+
+        <div class="col-md-9" id="statebar">
 
     <h1>State Homicide Rates and Gun Policies</h1>
 
 		<p>Weapons Used in the Commission of Various Criminal Offenses. Source: <a href="http://www.bjs.gov/index.cfm?ty=tp&tid=43">BJS</a>, 2012</p>
         </div>
-        <div class="col-md-2" id="#">
+        <div class="col-md-2" id="policybardrop">
     <p> Choose which crime you would like to see the weapons used in.</p>
         </div>
 </div>  <!----  End StateBar Div -->
 
 </div> <!-- end div for whole site that includes background image -->
 
-<div class="mastfoot row">
-    <div class="inner col-md-12">
-                
-        <ul class="nav navbar-nav">
-            <li><a href="http://www.baltimorerowing.org">Weapons Used by Crime</a></li>
-            <li><a href="http://www.baltimorerowing.org/safety-manual/">State Gun Policies</a></li>
-        </ul>
-       
-        <p>Created by <a href="http://fuckingdataviz.com">Taj Carson</a>.</p>
-    </div>
-</div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Created by <a href="http://fuckingdataviz.com">Taj Carson</a>.</p>
+      </div>
+    </footer>
+
 
 
 

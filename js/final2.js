@@ -118,7 +118,7 @@ d3.csv("OffensebyWeapon.csv", function(data) {
     var crime;
 
     //change the name of "body" to the div name for the dropdown //
-    d3.select("#dropdown")
+    d3.select("#statedropbar")
         .append("select")
         .on("change", function(d) {
             crime = d3.select("select").property("value")
@@ -137,7 +137,7 @@ d3.csv("OffensebyWeapon.csv", function(data) {
             }
         });
 
-    d3.select('#dropdown')
+    d3.select('#statebarback')
         .append('button')
         .text('Back')
         .attr('class', 'back-button')
@@ -152,3 +152,6 @@ d3.csv("OffensebyWeapon.csv", function(data) {
     // hide on first level
     d3.select('.back-button').style('display', 'none');
 });
+
+
+

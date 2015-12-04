@@ -38,16 +38,7 @@ text {
     fill: white;
 }
 
-#final {
-    padding-top: 40px;
 
-}
-
-
-#dropdown {
-    padding-top: 40px;
-    padding-right: 40px;
-}
 
 rect {
     fill: red;
