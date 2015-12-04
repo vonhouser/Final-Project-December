@@ -64,8 +64,16 @@ body {
     margin-top: 40px;
 }
 
-.slide {
-    float: left;
+#triggertext {
+
+}
+
+.slidetext {
+    padding-top: 70px;
+}
+
+.chevron {
+    padding-top: 200px;
 }
 /*
  * Footer
