@@ -3,19 +3,57 @@
  */
 
 /* Links */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 a,
 a:focus,
 a:hover {
   color: #fff;
 }
 
-html,
+
+h1 {
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    font-size: 36px;
+    color: red;
+}
+
+h2 {
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    font-size: 24px;
+    color: red;
+    text-align: left;
+}
+
+p {
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    font-size: 14px;
+    margin: 10px 0 0 0;
+			}
+
+.dropbar {
+    font-family: 'Open Sans', 'Helvetica', sans-serif;
+    text-align: left;
+}
+
+
 body {
+  font-family: 'Open Sans', 'Helvetica', sans-serif;
   height: 100%;
   background-color: #333;
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+.charttext {
+    font-family: 'Open Sans', 'Helvetica', sans-serif;
+    text-align: left;
+}
+
+.chartside {
+
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -49,10 +87,11 @@ body {
 }
 
 .title {
-    font-family: Arial;
+    font-family: 'Open Sans', 'Helvetica', sans-serif;
     font-size: 36px;
-    color: red;
 }
+
+
 
 .mastfoot > li {
   display: inline-block;
