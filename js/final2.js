@@ -25,6 +25,9 @@ var crimes = ["Assault", "Homicide", "Kidnapping or Abduction", "Sex Offenses", 
 
 
 function drawchart(currentdata, alldata, crime) {
+
+    $(".y.axis:first").empty();
+
     currentdata.sort(function(a, b) {
         return d3.descending(+a[crime], +b[crime]);
     });
@@ -38,7 +41,6 @@ function drawchart(currentdata, alldata, crime) {
     }).map(function(d) {
         return d.Type;
     }));
-
 
     var rects = svg2.selectAll("rect")
         .data(currentdata.filter(function(d) {
@@ -70,11 +72,11 @@ function drawchart(currentdata, alldata, crime) {
         .attr("height", heightScale.rangeBand())
         .transition().duration(1000)
 
-        .attr("width", function(d) {
-            return widthScale(d[crime]);
-        })
+    .attr("width", function(d) {
+        return widthScale(d[crime]);
+    })
 
-        .select("title")
+    .select("title")
         .text(function(d) {
             return "Number of violent offenses that involved the use of a" + d.Type;
         });
@@ -91,11 +93,13 @@ function drawchart(currentdata, alldata, crime) {
 
     var ticks = svg2.select(".axis.y").selectAll(".tick")
         .data(currentdata)
-        .attr('class', function (d) {
+        .attr('class', function(d) {
             return d.img ? 'has-image' : 'no-image';
         })
         .append("svg:image")
-        .attr("xlink:href", function (d) { return d.img ; })
+        .attr("xlink:href", function(d) {
+            return d.img;
+        })
         .attr("width", 100)
         .attr("height", 100)
         .attr("x", -120)
@@ -120,7 +124,7 @@ d3.csv("OffensebyWeapon.csv", function(data) {
     d3.select("#statedropbar")
         .append("select")
         .on("change", function(d) {
-            crime = d3.select("select").property("value")
+            crime = this.value;
             drawchart(toplevel, data, crime)
         })
         .selectAll("option")
@@ -151,6 +155,3 @@ d3.csv("OffensebyWeapon.csv", function(data) {
     // hide on first level
     d3.select('.back-button').style('display', 'none');
 });
-
-
-

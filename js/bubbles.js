@@ -1,4 +1,4 @@
-var width = 700,
+var width = 500,
     height = 500;
 
 var diameter = 500, //max size of the bubbles

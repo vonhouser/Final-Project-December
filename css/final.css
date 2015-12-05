@@ -1,17 +1,4 @@
-body {
-				background-color: white;
-				font-family: Helvetica, Arial, sans-serif;
-			}
-h1 {
-				font-size: 24px;
-				margin: 0;
-			}
 
-p {
-				font-size: 14px;
-				margin: 10px 0 0 0;
-                font-family: Helvetica, Arial, sans-serif;
-			}
 
 svg {
 				background-color:transparent
@@ -40,7 +27,7 @@ text {
 
 
 
-rect {
+#finalchart rect {
     fill: red;
 }
 
