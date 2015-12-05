@@ -1,5 +1,8 @@
+
+
+(function() {
 var w = 500;
-var h = 500;
+var h = 900;
 var padding = [20, 10, 30, 120]; //Top, right, bottom, left
 
 var widthScale = d3.scale.linear()
@@ -30,7 +33,6 @@ var policies = ["Open carry index", "Concealed carry index", "Assault weapons ba
 var rects;
 
 var alldata3;
-
 
 d3.csv("HomicidebyState.csv", function(data2) {
     d3.select("#policybardrop")
@@ -110,3 +112,5 @@ d3.csv("HomicidebyState.csv", function(data2) {
         .attr("transform", "translate(" + padding[3] + ",0)")
         .call(yAxis);
 });
+
+}) ();
