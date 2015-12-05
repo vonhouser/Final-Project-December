@@ -23,7 +23,6 @@ var svg2 = d3.select("#finalchart")
 
 var crimes = ["Assault", "Homicide", "Kidnapping or Abduction", "Sex Offenses", "Extortion", "Robbery"];
 
-
 function drawchart(currentdata, alldata, crime) {
 
     $(".y.axis:first").empty();
@@ -75,11 +74,35 @@ function drawchart(currentdata, alldata, crime) {
     .attr("width", function(d) {
         return widthScale(d[crime]);
     })
-
+/*
     .select("title")
         .text(function(d) {
             return "Number of violent offenses that involved the use of a" + d.Type;
         });
+*/
+    //inserting tooltip code here
+
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return "Number of violent offenses that involved the use of a" + d.Type;
+  })
+/*
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+*/
+
+svg2.call(tip);
+
+svg2.selectAll("rect")
+    .on('mouseover', tip.show)
+    .on('mouseout', tip.hide)
+
+//end of tooltip code
 
     svg2.select("g.x.axis")
         .attr("transform", "translate(" + padding[3] + "," + (h - padding[2]) + ")")
@@ -154,4 +177,6 @@ d3.csv("OffensebyWeapon.csv", function(data) {
 
     // hide on first level
     d3.select('.back-button').style('display', 'none');
+
 });
+

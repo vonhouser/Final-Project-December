@@ -18,7 +18,7 @@ body {
 			}
 
 			rect:hover {
-				fill: gray;
+				fill: #52504E;
 			}
 
 			.axis path,
@@ -29,8 +29,9 @@ body {
 			}
 
 			.axis text {
-				font-family: sans-serif;
-				font-size: 11px;
+                font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+                font-size: 12px;
+                color: #F0EAD1;
 			}
 
 			.y.axis path,

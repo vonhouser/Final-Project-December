@@ -12,25 +12,32 @@ svg {
 			}
 			
 .axis text {
-				font-family: Helvetica, Arial, sans-serif;
-				font-size: 12px;
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    font-size: 12px;
+    color: #F0EAD1;
 			}
 
 .y.axis path,
 .y.axis line {
-				opacity: 0;
+    opacity: 0;
 			}
 
 text {
-    fill: white;
+    fill: #F0EAD1;
 }
 
 
 
 #finalchart rect {
-    fill: red;
+    fill: #6F0909;
 }
 
 rect:hover {
     fill: steelblue;
+}
+
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
 }
