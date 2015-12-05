@@ -33,7 +33,7 @@ function drawbubblechart(data3, alldata2, state) {
         d3.select("select").remove();
         d3.select(".back-button").remove();
 
-        d3.select('#bubbleback')
+        d3.select('.bubbleback')
             .append('button')
             .text('Back')
             .attr('class', 'back-button')
@@ -44,7 +44,7 @@ function drawbubblechart(data3, alldata2, state) {
                 drawbubblechart(data3, alldata2);
             });
 
-        d3.select("#bubbles")
+        d3.select(".bubbles")
             .append("select")
             .on("change", function(d) {
             var state = d3.select("select").property("value")

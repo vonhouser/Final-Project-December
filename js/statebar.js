@@ -35,7 +35,7 @@ var rects;
 var alldata3;
 
 d3.csv("HomicidebyState.csv", function(data2) {
-    d3.select("#policybardrop")
+    d3.select(".policybardrop")
         .append("select")
         .on("change", function(d) {
             var policy = this.value;

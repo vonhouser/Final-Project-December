@@ -35,8 +35,7 @@ rect:hover {
 }
 
 .d3-tip.e:after {
-  margin: -1px 0 0 0;
-  top: 100%;
+  margin: 0 0 0-10px;
   left: 0;
 }
 
@@ -48,7 +47,7 @@ rect:hover {
   width: 100%;
   line-height: 1;
   color: rgba(0, 0, 0, 0.8);
-  content: "\25BC";
+  content: "\25C0";
   position: absolute;
   text-align: start;
   transform:rotate(-90);
