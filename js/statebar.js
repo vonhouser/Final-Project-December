@@ -1,5 +1,3 @@
-
-
 (function() {
 var w = 500;
 var h = 900;
@@ -9,7 +7,7 @@ var widthScale = d3.scale.linear()
     .range([0, w - padding[1] - padding[3]]);
 
 var colorScale = d3.scale.linear()
-    .range(["red", "gray"]);
+    .range(["#792929", "#F0EAD1"]);
 
 var heightScale = d3.scale.ordinal()
     .rangeRoundBands([padding[0], h - padding[2]], 0.1);

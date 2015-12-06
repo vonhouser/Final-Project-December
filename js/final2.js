@@ -1,6 +1,6 @@
 (function () {
 var w = 500;
-var h = 350;
+var h = 400;
 var padding = [20, 10, 40, 180]; //Top, right, bottom, left
 
 var widthScale = d3.scale.linear()
@@ -126,14 +126,17 @@ var svg = d3.select("body").append("svg")
         .attr('class', function(d) {
             return d.img ? 'has-image' : 'no-image';
         })
+        .filter(function(d) {     //if there is an image attribute, keep the element, otherwise filter
+            return d.img !=null
+        })
         .append("svg:image")
         .attr("xlink:href", function(d) {
             return d.img;
         })
         .attr("width", 100)
-        .attr("height", 100)
-        .attr("x", -120)
-        .attr("y", -50);
+        .attr("height", heightScale.rangeBand())
+        .attr("x", function() { return -this.getBBox().width; })  //add or substract to make an exact fit, after width
+        .attr("y", -heightScale.rangeBand()/2);
 }
 
 d3.csv("OffensebyWeapon.csv", function(data) {

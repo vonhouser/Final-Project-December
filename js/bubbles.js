@@ -1,8 +1,10 @@
 var width = 500,
-    height = 500;
+    height = 400;
 
 var diameter = 500, //max size of the bubbles
-    color = d3.scale.category20b(); //color category
+    color = d3.scale.ordinal()
+    .domain([-1, 0, 1])
+    .range(["#6F0909", "#792929 ", "#F0EAD1"]);; //color category
 
 var bubble = d3.layout.pack()
     .sort(null)

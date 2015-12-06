@@ -30,6 +30,14 @@ text {
     fill: #6F0909;
 }
 
+#bubblechart {
+    margin-left: 80px;
+}
+
+#policybar {
+    float:right;
+}
+
 rect:hover {
     fill: steelblue;
 }
