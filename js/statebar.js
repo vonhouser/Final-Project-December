@@ -57,7 +57,7 @@ d3.csv("HomicidebyState.csv", function(data2) {
         });
     alldata3 = data2;
     data2.sort(function(a, b) {
-        return d3.descending(+a["Total Firearms"], +b["Total Firearms"]);
+        return d3.descending(+a["Firearm Rate"], +b["Firearm Rate"]);
     });
 
     data2 = data2.filter(function(d) {
@@ -65,7 +65,7 @@ d3.csv("HomicidebyState.csv", function(data2) {
     })
 
     widthScale.domain([0, d3.max(data2, function(d) {
-        return +d["Total Firearms"];
+        return +d["Firearm Rate"];
     })]);
 
     colorScale.domain([0,
@@ -92,12 +92,12 @@ d3.csv("HomicidebyState.csv", function(data2) {
             return heightScale(d.State);
         })
         .attr("width", function(d) {
-            return widthScale(d["Total Firearms"]);
+            return widthScale(d["Firearm Rate"]);
         })
         .attr("height", heightScale.rangeBand())
         .append("title")
         .text(function(d) {
-            return d.State + "'s total number of Firearm Homicides is " + d["Total Firearms"];
+            return d.State + "'s total number of Firearm Homicides is " + d["Firearm Rate"];
         });
 
     svg.append("g")

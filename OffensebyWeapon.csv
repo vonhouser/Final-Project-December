@@ -1,5 +1,5 @@
 Type,Total Offenses Involving Weapons,Assault,Homicide,Kidnapping or Abduction,Sex Offenses,Extortion,Robbery,Weapons Violations,Total,Parent,img
-Firearms,89674,52086,2675,2312,870,45,31686,47715,137389,,img/gun.png
+Firearms,89674,52086,2675,2312,870,45,31686,47715,137389,,img/guntext.png
 Firearm,18169,12095,831,355,240,19,4629,8733,,Firearms,
 Automatic Firearm,1140,705,30,29,9,1,366,553,,Firearms,
 Handgun,54594,28719,1405,1543,498,16,22413,27299,,Firearms,
@@ -10,8 +10,8 @@ Shotgun,4193,3112,103,154,22,0,802,3136,,Firearms,
 Automatic Shotgun,158,136,3,0,0,0,19,78,,Firearms,
 Other Firearm,2303,1821,17,33,24,3,405,1539,,Firearms,
 Automatic Other Firearm,115,74,2,2,1,1,35,46,,Firearms,
-Knife/Cutting Instrument,48188,40431,445,901,698,12,5701,12399,60587,,
-"Hands, Fist, or Feet",788005,710692,279,8158,44776,196,23904,385,788390,,
+Knife/Cutting Instrument,48188,40431,445,901,698,12,5701,12399,60587,,img/knifetext.png
+"Hands, Fist, or Feet",788005,710692,279,8158,44776,196,23904,385,788390,,img/fisttext.png
 All Other,151819,134858,698,1628,6749,255,7631,9470,161289,,
 Blunt Object,32462,29748,165,226,236,3,2084,2479,,All Other,
 Motor Vehicle,14249,13743,101,139,21,0,245,52,,All Other,
