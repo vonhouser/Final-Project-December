@@ -107,6 +107,12 @@ var svg = d3.select("body").append("svg")
 
 //end of tooltip code
 
+    var imageSizes = {
+        "img/fisttext.png": [100, 100],
+        "img/guntext.png": [140, 50],
+        "img/knifetext.png": [120, 90]
+    };
+
     svg2.select("g.x.axis")
         .attr("transform", "translate(" + padding[3] + "," + (h - padding[2]) + ")")
         .call(xAxis)
@@ -133,10 +139,16 @@ var svg = d3.select("body").append("svg")
         .attr("xlink:href", function(d) {
             return d.img;
         })
-        .attr("width", 100)
-        .attr("height", heightScale.rangeBand())
-        .attr("x", function() { return -this.getBBox().width; })  //add or substract to make an exact fit, after width
-        .attr("y", -heightScale.rangeBand()/2);
+        .attr("width", function (d) {
+            return Object(imageSizes[d.img])[0] || 100;
+        })
+        .attr("height", function (d) {
+            return Object(imageSizes[d.img])[1] || heightScale.rangeBand();
+        })
+        .attr("y", function (d) {
+            return -(Object(imageSizes[d.img])[1] || heightScale.rangeBand()) / 2;
+        })
+        .attr("x", function() { return -this.getBBox().width; });  //add or substract to make an exact fit, after width
 }
 
 d3.csv("OffensebyWeapon.csv", function(data) {
