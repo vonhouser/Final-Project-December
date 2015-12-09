@@ -11,7 +11,7 @@ var heightScale = d3.scale.ordinal()
 
 var xAxis = d3.svg.axis()
     .scale(widthScale)
-    .ticks(3)  //set number of ticks
+    .ticks(3)  //set number of ticks to three
     .orient("bottom");
 
 var yAxis = d3.svg.axis()
