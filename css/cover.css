@@ -32,6 +32,23 @@ p {
     margin: 10px 0 0 0;
 			}
 
+.navbar-fixed-top {
+    background-color: #F0EAD1;
+}
+
+.navbar-nav > li > a  {
+    color: #52504E;
+}
+
+.navbar-header {
+    padding-left: 60px;
+}
+
+.navbar {
+
+}
+
+
 .dropbar {
     font-family: 'Open Sans', 'Helvetica', sans-serif;
     text-align: left;
