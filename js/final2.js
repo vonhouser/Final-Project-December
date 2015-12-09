@@ -1,7 +1,7 @@
 (function () {
 var w = 500;
 var h = 400;
-var padding = [20, 10, 40, 180]; //Top, right, bottom, left
+var padding = [20, 45, 40, 180]; //Top, right, bottom, left
 
 var widthScale = d3.scale.linear()
     .range([0, w - padding[1] - padding[3]]);
@@ -117,8 +117,8 @@ var svg = d3.select("body").append("svg")
         .attr("transform", "translate(" + padding[3] + "," + (h - padding[2]) + ")")
         .call(xAxis)
         .selectAll("text")
-        .attr("dy", ".35em") //rotate labels
-        .attr("transform", "rotate(90)")
+        .attr("dy", "1em") //rotate labels
+ //       .attr("transform", "rotate(0)")
         .style("text-anchor", "start"); //end rotate labels
 
     svg2.select("g.y.axis")
