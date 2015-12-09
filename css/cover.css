@@ -172,7 +172,11 @@ select {
     padding-right: 200px;
     padding-left: 200px;
     background-color: #F0EAD1;
+<<<<<<< HEAD
     height:300px;
+=======
+    height: 200px;
+>>>>>>> origin/master
 }
 
 #barside {
