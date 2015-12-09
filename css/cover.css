@@ -38,10 +38,11 @@ p {
 
 .navbar-nav > li > a  {
     color: #52504E;
+    padding-right: 60px;
 }
 
 .navbar-header {
-    padding-left: 60px;
+    padding-left: 100px;
 }
 
 .navbar {
@@ -108,9 +109,7 @@ body {
           box-shadow: inset 0 0 100px rgba(0,0,0,.5);
 }
 
-.statedropbar {
-    color: red;
-}
+
 
 .pagewrap {
 
@@ -129,14 +128,17 @@ body {
 }
 
 select {
-    font-family: 'Open Sans', 'Helvetica', sans-serif;
-    float: left;
-    color: red;
-    font-size: 12px;
-}
-
-option {
-    color: red;
+  font-family: 'Open Sans', 'Helvetica', sans-serif;
+   background: #F0EAD1;
+   width: 268px;
+   color: #6F0909;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
 }
 
 
@@ -147,11 +149,11 @@ option {
 
 
 /* trigger button */
-.btn {
-    background-color: gray;
+.back-button {
+    background-color: #F0EAD1;
     margin-top: 40px;
     font-family: 'Open Sans', 'Helvetica', sans-serif;
-
+    color: #52504E;
 }
 
 .triggertext {
@@ -183,6 +185,7 @@ option {
     padding-right: 200px;
     padding-left: 200px;
     background-color: #F0EAD1;
+    height: 500px;
 }
 
 .slideh2 {
@@ -198,6 +201,7 @@ option {
     font-size: 16px;
     color: #52504E;
     text-align: center;
+
 }
 
 .chevron {
