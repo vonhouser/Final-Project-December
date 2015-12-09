@@ -138,7 +138,6 @@ select {
    border: 0;
    border-radius: 0;
    height: 34px;
-   -webkit-appearance: none;
 }
 
 
@@ -173,6 +172,7 @@ select {
     padding-right: 200px;
     padding-left: 200px;
     background-color: #F0EAD1;
+    height:300px;
 }
 
 #barside {
